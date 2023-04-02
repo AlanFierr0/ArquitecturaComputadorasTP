@@ -12,26 +12,26 @@ public class Calculator implements Icalculator {
     
     public static String[] complete(String a, String b) {
             if (a.length() > b.length()) {
-                String ceros = String.format("%0" + diff(a, b) + "d", 0);
-                b = ceros + b;
+                String zeros = String.format("%0" + diff(a, b) + "d", 0);
+                b = zeros + b;
             } else if (a.length() < b.length()) {
-                String ceros = String.format("%0" + diff(b, a) + "d", 0);
-                a = ceros + a;
+                String zeros = String.format("%0" + diff(b, a) + "d", 0);
+                a = zeros + a;
             }
             String[] result = { a, b };
             return result;
         }
     
     @Override
-    public String sumBinary(String a, String b) {
-            String[] completeResult = complete(a, b);
-            a = completeResult[0];
-            b = completeResult[1];
+    public String sumBinary(String Binary1, String Binary2) {
+            String[] completeResult = complete(Binary1, Binary2);
+            Binary1 = completeResult[0];
+            Binary2 = completeResult[1];
             String sum = "";
             String extra = "0";
-            for (int i = 0; i <= a.length() - 1; i++) {
-                char num_a = a.charAt(a.length() - 1 - i);
-                char num_b = b.charAt(b.length() - 1 - i);
+            for (int i = 0; i <= Binary1.length() - 1; i++) {
+                char num_a = Binary1.charAt(Binary1.length() - 1 - i);
+                char num_b = Binary2.charAt(Binary2.length() - 1 - i);
     
                 if (num_a == '0' && num_b == '0') {
                     if (extra.equals("0")) {
@@ -87,16 +87,16 @@ public class Calculator implements Icalculator {
         return true;
     }
     @Override
-    public String subBinary(String a, String b) {
-        String[] completeResult = complete(a, b);
-        a = completeResult[0];
-        b = completeResult[1];
+    public String subBinary(String Binary1, String Binary2) {
+        String[] completeResult = complete(Binary1, Binary2);
+        Binary1 = completeResult[0];
+        Binary2 = completeResult[1];
         String substitution = "";
         String extra = "0";
-        if(checkNegativeAnswer(a,b)){
-            for (int i = 0; i <= a.length() - 1; i++) {
-                char num_a = a.charAt(a.length() - 1 - i);
-                char num_b = b.charAt(b.length() - 1 - i);
+        if(checkNegativeAnswer(Binary1,Binary2)){
+            for (int i = 0; i <= Binary1.length() - 1; i++) {
+                char num_a = Binary1.charAt(Binary1.length() - 1 - i);
+                char num_b = Binary2.charAt(Binary2.length() - 1 - i);
                 if (num_a == '0' && num_b == '0') {
                     if (extra.equals("0")) {
                         substitution = "0" + substitution;
@@ -140,11 +140,11 @@ public class Calculator implements Icalculator {
     }
     
     @Override
-    public String mult(String a, String b) {
-        int timesMultiplied = binarytoDecimal(b);
+    public String mult(String Binary1, String Binary2) {
+        int timesMultiplied = binarytoDecimal(Binary2);
         String Binary = "";
             for(int i = 0; i < timesMultiplied; i++){
-            Binary= sumBinary(Binary,a);
+            Binary= sumBinary(Binary,Binary1);
         }
         return(Binary);
     }
