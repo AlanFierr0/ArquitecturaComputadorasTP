@@ -8,6 +8,8 @@ public class Main {
         //System.out.println(calc.subBinary("01010110101", "001010010"));
         //System.out.println(calc.mult("1010", "101"));
         //System.out.println(calc.toHex("10101010010010010101010101010"));
-        System.out.println(ascii.decode("Hola como andas!"));
+        //System.out.println(ascii.decode("A7F"));
+        //System.out.println(ascii.encode("100000101101111000110"));
         }
     }
+
