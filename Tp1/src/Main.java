@@ -13,6 +13,7 @@ public class Main {
         System.out.println(ascii.encode("100000101101111000110"));
         System.out.println(bcd.encode(150));
         System.out.println(bcd.decode("000101010000"));
+        System.out.println(ascii.encode("001101110010110011010"));
         }
     }
 
