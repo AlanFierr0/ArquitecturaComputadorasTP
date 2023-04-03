@@ -29,6 +29,13 @@ public class CalculatorTest {
     }
 
     @Test
+    public void testDiv(){
+        testDivEqualLengthString();
+        testDivFirstLongerLengthString();
+        testDivSecondLongerLengthString();
+    }
+
+    @Test
     public void testToHex(){
         Assert.assertEquals(calculator.toHex("10011010"), "9A");
         Assert.assertEquals(calculator.toHex("100101"),"25");
@@ -77,6 +84,18 @@ public class CalculatorTest {
 
     private void testMultSecondLongerLengthString(){
         Assert.assertEquals(calculator.mult("1001001","1000100101"),"1001110010001101");
+    }
+
+    private void testDivEqualLengthString(){
+        Assert.assertEquals(calculator.div("11011011","00101101"),"100");
+    }
+
+    private void testDivFirstLongerLengthString(){
+        Assert.assertEquals(calculator.div("1100110010","110110"), "1111");
+    }
+
+    private void testDivSecondLongerLengthString(){
+        Assert.assertEquals(calculator.div("0110011","011001100111"),"0");
     }
 
 
