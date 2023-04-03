@@ -125,7 +125,7 @@ public class Calculator implements Icalculator {
                         extra = "0";
                     } else {
                         substitution = "1" + substitution;
-                        extra = "0";
+                        extra = "1";
                         }
                     }
                 }
@@ -150,8 +150,10 @@ public class Calculator implements Icalculator {
     }
     @Override
     public String div(String a, String b) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'div'");
+        int num_a = binarytoDecimal(a);
+        int num_b = binarytoDecimal(b);
+        String result = DecimalToBinary(num_a / num_b);
+        return result;
     }
     
     public Integer binarytoDecimal(String binary) {
