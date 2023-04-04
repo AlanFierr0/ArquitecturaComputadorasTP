@@ -141,25 +141,27 @@ public class Calculator implements Icalculator {
     
     @Override
     public String mult(String Binary1, String Binary2) {
-        int timesMultiplied = binarytoDecimal(Binary2);
-        String Binary = "";
-            for(int i = 0; i < timesMultiplied; i++){
-            Binary= sumBinary(Binary,Binary1);
-        }
-        return(Binary);
+        String result = Binary1;    
+        while(Binary2.contains("1") ){
+            Binary2 = subBinary(Binary2, "1");    
+            result = sumBinary(result, Binary1);
+            }
+        result = subBinary(result, Binary1);
+        return(result);
     }
+
     @Override
     public String div(String dividend, String divisor) {
         String[] completeResult = complete(dividend, divisor);
         dividend = completeResult[0];
         divisor = completeResult[1];
         String result = divisor;
-        int i  = 0;
+        String i  = "";
         while(checkNegativeAnswer(dividend, result) != false){
             result = sumBinary(result,divisor);
-            i++;
+            i = sumBinary(i, "1");
         }
-        return DecimalToBinary(i);
+        return i;
     }
     
     public Integer binarytoDecimal(String binary) {
