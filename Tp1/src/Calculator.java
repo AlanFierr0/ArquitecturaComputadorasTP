@@ -149,11 +149,17 @@ public class Calculator implements Icalculator {
         return(Binary);
     }
     @Override
-    public String div(String a, String b) {
-        int num_a = binarytoDecimal(a);
-        int num_b = binarytoDecimal(b);
-        String result = DecimalToBinary(num_a / num_b);
-        return result;
+    public String div(String dividend, String divisor) {
+        String[] completeResult = complete(dividend, divisor);
+        dividend = completeResult[0];
+        divisor = completeResult[1];
+        String result = divisor;
+        int i  = 0;
+        while(checkNegativeAnswer(dividend, result) != false){
+            result = sumBinary(result,divisor);
+            i++;
+        }
+        return DecimalToBinary(i);
     }
     
     public Integer binarytoDecimal(String binary) {
